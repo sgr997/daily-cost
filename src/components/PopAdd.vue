@@ -14,7 +14,7 @@
           <span @click="changeType('expense')" :class="{ expense: true, active: payType == 'expense' }">支出</span>
           <span @click="changeType('income')" :class="{ income: true, active: payType == 'income' }">收入</span>
         </div>
-        <div @click="showDay = true" class="time">{{ $filters.transDay(date) }} <i class="iconfont sort-down" /></div>
+        <div @click="showDay = true" class="time">{{ $filters.transYDM(date) }} <i class="iconfont sort-down" /></div>
       </div>
       <div class="money">
         <span class="sufix">¥</span>
@@ -62,7 +62,7 @@
     >
       <van-datetime-picker
         v-model="date"
-        type="date"
+        type="datetime"
         title="选择时间"
         @confirm="choseDay"
         @cancel="showDay = false"
@@ -91,13 +91,13 @@ export default {
     const state = reactive({
       show: false, // 显示隐藏添加账单弹窗
       amount: id ? props.detail.amount : '', // 账单价格
-      payType: id ? (props.detail.pay_type == 1 ? 'expense' : 'income') : 'expense', // 支出或收入类型
+      payType: id ? (props.detail.payType == 1 ? 'expense' : 'income') : 'expense', // 支出或收入类型
       expense: [], // 支出类型数组
       income: [], // 收入类型数组
       typeMap: typeMap, // 类型key-value键值对
       currentType: id ? {
-        id: props.detail.type_id,
-        name: props.detail.type_name
+        id: props.detail.type.id,
+        name: props.detail.type.typeName
       } : {}, // 当前选择的类型对象
       showDay: false, // 选择日期显示/隐藏
       date: id ? dayjs(Number(props.detail.date)).$d : new Date(), // 日期

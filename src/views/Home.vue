@@ -3,11 +3,7 @@
     <div class="header">
       <div class="type-wrap" @click="toggle">
         <span class="title">{{ currentSelect.name || '全部类型' }}</span>
-        <i class="iconfont leixing" 
-            @touchstart="onTouchStart"
-        @touchmove="onTouchMove"
-        @touchend="onTouchEnd" 
-        />
+        <i class="iconfont leixing" />
       </div>
       <div class="data-wrap">
         <span class="time" @click="monthToggle">{{ currentTime }} <i class="iconfont sort-down" /></span>
@@ -96,7 +92,8 @@ export default {
         data.pages = 1
         state.loading = false
 
-        state.list = state.list.concat(updatedData)
+        // state.list = state.list.concat(updatedData)
+        state.list = updatedData
         state.totalExpense = Number(data.totalExpense / 100).toFixed(2)
         state.totalIncome = Number(data.totalIncome / 100).toFixed(2)
         state.totalPage = data.pages

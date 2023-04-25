@@ -9,7 +9,7 @@
     </van-divider>
     <div class="content">
       <p>随便开发玩玩</p>
-      <p><a href="https://github.com/sgr997/daily-cost-java" target="_blank">项目后端</a></p>
+      <p><a href="https://github.com/sgr997/daily-cost-boot" target="_blank">项目后端</a></p>
       <p><a href="https://github.com/sgr997/daily-cost" target="_blank">项目前端(不是我写的)</a></p>
     </div>
     <van-divider
